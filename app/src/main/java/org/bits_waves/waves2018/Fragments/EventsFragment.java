@@ -11,12 +11,20 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import org.bits_waves.waves2018.AccessJSON;
 import org.bits_waves.waves2018.Adapters.EventsCardFragmentPagerAdapter;
 import org.bits_waves.waves2018.Adapters.EventsCardPagerAdapter;
 import org.bits_waves.waves2018.ListItems.EventsCardItem;
 import org.bits_waves.waves2018.R;
 import org.bits_waves.waves2018.ShadowTransformer;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class EventsFragment extends Fragment {
 
@@ -36,6 +44,7 @@ public class EventsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -57,6 +66,7 @@ public class EventsFragment extends Fragment {
         mViewPager.setAdapter(mCardAdapter);
         mViewPager.setPageTransformer(false, mCardShadowTransformer);
         mViewPager.setOffscreenPageLimit(3);
+
     }
 
     @Nullable
@@ -64,6 +74,9 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_events,container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager_events_fragment);
+        TextView textView = (TextView) view.findViewById(R.id.textview_events);
+        AccessJSON accessJSON = new AccessJSON();
+        JSONArray jsonArray = accessJSON.readEventJSONArray(getContext());
         return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }

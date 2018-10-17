@@ -1,0 +1,45 @@
+[ 	{
+		"Date": "",
+		"Region": "1-May",
+		"Product": "East",
+		"Qty": "Paper",
+		"Cost": "73",
+		"Amt": "12.95",
+		"Tax": "$ 945.35",
+		"Total": "66.17",
+		"": ""
+	},
+	{
+		"Date": "",
+		"Region": "1-May",
+		"Product": "West",
+		"Qty": "Pens",
+		"Cost": "40",
+		"Amt": "2.19",
+		"Tax": "$ 87.60",
+		"Total": "6.13",
+		"": ""
+	},
+	{
+		"Date": "",
+		"Region": "2-May",
+		"Product": "West",
+		"Qty": "Paper",
+		"Cost": "33",
+		"Amt": "12.95",
+		"Tax": "$ 427.35",
+		"Total": "29.91",
+		"": ""
+	},
+	{
+		"Date": "",
+		"Region": "2-May",
+		"Product": "East",
+		"Qty": "Paper",
+		"Cost": "21",
+		"Amt": "12.95",
+		"Tax": "$ 271.95",
+		"Total": "19.04",
+		"": ""
+	}
+]

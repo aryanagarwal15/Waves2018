@@ -21,7 +21,11 @@ import org.bits_waves.waves2018.FileHelper;
 import org.bits_waves.waves2018.ListItems.EventsCardItem;
 import org.bits_waves.waves2018.R;
 import org.bits_waves.waves2018.ShadowTransformer;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class EventsEventsFragment extends Fragment{
@@ -47,18 +51,19 @@ public class EventsEventsFragment extends Fragment{
     public void onStart() {
         super.onStart();
         EventsViewCardPagerAdapter mCardAdapter = new EventsViewCardPagerAdapter();
-        List<String> data = FileHelper.ReadFile(getContext(), day);
-        for(int i=0; i<data.size(); i++) {
+        List<String> data = FileHelper.ReadFile(getActivity().getApplicationContext(), day);
+        /*for(int i=0; i<data.size(); i++) {
             mCardAdapter.addCardItem((new EventsCardItem(data.get(i),getActivity().getApplicationContext())));
-        }
+        }*/
         context = getContext();
-        /*mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_0),context));
+
+        mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_0),context));
         mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_1),context));
         mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_2),context));
         mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_3),context));
         mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_4),context));
         mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_5),context));
-        mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_6),context));*/
+        mCardAdapter.addCardItem(new EventsCardItem(getResources().getString(R.string.event_6),context));
         EventsEventsCardFragmentPagerAdapter mFragmentCardAdapter = new EventsEventsCardFragmentPagerAdapter(getFragmentManager(),
                 dpToPixels(2, getActivity().getApplicationContext()));
 

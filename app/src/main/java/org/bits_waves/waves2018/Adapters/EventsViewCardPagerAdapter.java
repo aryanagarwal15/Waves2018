@@ -91,7 +91,8 @@ public class EventsViewCardPagerAdapter extends PagerAdapter implements EventsFr
                 context.startActivity(intent);
             }
         });
-        eventsTitleTextView.setText(item.getmTextResource());
+        //eventsTitleTextView.setText(item.getmTextResource());
+        eventsTitleTextView.setText("Check");
         //eventsContentTextView.setText(item.getText());
     }
 }

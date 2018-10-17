@@ -2,17 +2,65 @@ package org.bits_waves.waves2018;
 
 import android.content.Context;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import org.bits_waves.waves2018.ListItems.Event;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStream;
 
 public class AccessJSON {
-    private Context context;
+
+    public Event readEventJSON(Context context) {
+        String jsonString = null;
+        JSONObject jsonObject = new JSONObject();
+        Event event = new Event();
+        try{
+            InputStream is = context.getAssets().open("Events.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            jsonString = new String(buffer, "UTF-8");
+            jsonObject = new JSONObject(jsonString);
+            event.setDescription(jsonObject.getString("description"));
+            event.setName(jsonObject.getString("name"));
+            event.setRules(jsonObject.getString("rules"));
+            event.setImgRes(jsonObject.getString("imgres1"),
+                    jsonObject.getString("imgres2"),
+                    jsonObject.getString("imgres3"));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return event;
+    }
+
+    public JSONArray readEventJSONArray(Context context) {
+        String jsonString = null;
+        Event event = new Event();
+        JSONArray jsonArray = new JSONArray();
+        try{
+            InputStream is = context.getAssets().open("test.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            jsonString = new String(buffer, "UTF-8");
+            jsonArray = new JSONArray(jsonString);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonArray;
+    }
+
+    /*private Context context;
     private FileInputStream fileIn;
     private FileOutputStream fileOut;
     private ObjectInputStream objectIn;
@@ -67,5 +115,5 @@ public class AccessJSON {
                 }
             }
         }
-    }
+    }*/
 }

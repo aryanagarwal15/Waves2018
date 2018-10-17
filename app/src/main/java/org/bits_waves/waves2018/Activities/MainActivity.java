@@ -12,8 +12,15 @@ import android.widget.FrameLayout;
 
 import org.bits_waves.waves2018.Fragments.EventsEventsFragment;
 import org.bits_waves.waves2018.Fragments.EventsFragment;
-import org.bits_waves.waves2018.Fragments.HomeFragment;
+import org.bits_waves.waves2018.Fragments.EventsFragmentSimple;
+import org.bits_waves.waves2018.Fragments.HomeFragmentOld;
+import org.bits_waves.waves2018.Fragments.SpotOnFragment;
 import org.bits_waves.waves2018.R;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements EventsFragment.UpdateEvents{
 
@@ -30,18 +37,26 @@ public class MainActivity extends AppCompatActivity implements EventsFragment.Up
         BottomNavigationView bottomNav = (BottomNavigationView) findViewById(R.id.bottom_nav);
         secondaryFrameLayout = (FrameLayout) findViewById(R.id.main_activity_secondary_frame_layout);
 
+
+
         bottomNav.setSelectedItemId(R.id.bottom_nav_home);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()) {
                     case R.id.bottom_nav_events:
-                        selectedSecondaryFragment = EventsEventsFragment.newInstance();
+                        /*selectedSecondaryFragment = EventsEventsFragment.newInstance();
                         selectedFragment = EventsFragment.newInstance();
-                        twoFragments = true;
+                        twoFragments = true;*/
+                        selectedFragment = EventsFragmentSimple.newInstance();
+                        twoFragments = false;
                         break;
                     case R.id.bottom_nav_home:
-                        selectedFragment = HomeFragment.newInstance();
+                        selectedFragment = HomeFragmentOld.newInstance();
+                        twoFragments = false;
+                        break;
+                    case R.id.bottom_nav_spoton:
+                        selectedFragment = SpotOnFragment.newInstance();
                         twoFragments = false;
                         break;
                 }
@@ -62,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements EventsFragment.Up
 
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_activity_frame_layout, HomeFragment.newInstance());
+        transaction.replace(R.id.main_activity_frame_layout, HomeFragmentOld.newInstance());
         transaction.commit();
     }
 

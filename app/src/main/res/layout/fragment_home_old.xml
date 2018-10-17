@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.bits_waves.waves2018.Fragments.HomeFragmentOld">
+
+    <FrameLayout
+        android:id="@+id/frame_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="false">
+
+        <!--android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_back"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <ImageButton
+            android:id="@+id/ourTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/gradient_back"
+            android:minHeight="55dp"
+            android:minWidth="55dp"
+            app:srcCompat="@drawable/ic_team" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="147dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/logo" />
+
+        <ImageButton
+            android:id="@+id/regBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/gradient_back"
+            android:minHeight="55dp"
+            android:minWidth="55dp"
+            app:srcCompat="@drawable/ic_hand"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/drop_shadow" /-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/twoshades">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingRight="8dp"
+                    android:text="Demons cannot prosper without the goodness of angels and there is no Yin without Yang. After surfing the tides of time last year, Waves 2017 brings you a chance to explore the dark side. This Waves, be the one to write your tale afresh, a tale never to be forgotten."
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="50dp">
+
+                    <View
+                        android:id="@+id/vertical"
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#fff" />
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/vertical">
+
+                        <Button
+                            android:layout_marginLeft="30dp"
+                            android:id="@+id/live"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:background="#ff0000"
+                            android:text="      Now Live       "
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp"/>
+
+
+                        <Button
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/category_mainpage"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:background="#fff"
+                            android:text="      Category       "
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/vertical2"
+                        android:layout_marginTop="60dp"
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#fff" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/vertical">
+
+                        <Button
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="30dp"
+                            android:id="@+id/winners"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:background="#ffffff"
+                            android:text="Winners"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+
+                        <Button
+                            android:id="@+id/minifest_mainpage"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#ffffff"
+                            android:text="Minifest"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</RelativeLayout>

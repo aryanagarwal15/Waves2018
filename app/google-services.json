@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1093187083881",
+    "firebase_url": "https://waves2018-452f0.firebaseio.com",
+    "project_id": "waves2018-452f0",
+    "storage_bucket": "waves2018-452f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093187083881:android:7638da2b90394b3d",
+        "android_client_info": {
+          "package_name": "org.bits_waves.waves2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093187083881-v4krlfljjht6vh6ij5p23f5sskgos4af.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnVNKvFBg8jCWvfFKWAOh-6CIJgKU6SN0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

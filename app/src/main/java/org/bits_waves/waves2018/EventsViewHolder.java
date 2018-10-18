@@ -22,6 +22,6 @@ public class EventsViewHolder extends RecyclerView.ViewHolder{
         eventTitle.setText(eventBrief.getName());
         //find how to convert string to it to set image resource
         eventImage.setImageResource(eventBrief.getImgResInt());
-        eventImage.setImageResource(R.drawable.favicon);
+        eventImage.setImageResource(R.drawable.ic_hand);
     }
 }

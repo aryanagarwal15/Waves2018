@@ -22,8 +22,8 @@ public class EventsFragmentSimple extends Fragment{
     RecyclerView recyclerView;
 
     private List<EventBrief> dummyData() {
-        List<EventBrief> data = new ArrayList<>(5);
-        for(int i=0; i<5; i++) {
+        List<EventBrief> data = new ArrayList<>(10);
+        for(int i=0; i<10; i++) {
             data.add(new EventBrief("Event"+i, "ingRes"+i, i));
         }
         return data;

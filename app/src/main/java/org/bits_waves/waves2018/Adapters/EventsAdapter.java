@@ -10,11 +10,12 @@ import org.bits_waves.waves2018.EventsViewHolder;
 import org.bits_waves.waves2018.ListItems.EventBrief;
 import org.bits_waves.waves2018.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
 
-    List<EventBrief> eventList;
+    List<EventBrief> eventList = new ArrayList<>(0);
 
     public EventsAdapter(List<EventBrief> eventBriefList) {
         this.eventList = eventBriefList;

@@ -55,7 +55,6 @@ public class SpotOnFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-
         final SpotOnAdapter spotOnAdapter = new SpotOnAdapter(spotOnItems);
         recyclerView.setAdapter(spotOnAdapter);
         recyclerView.setHasFixedSize(false);
@@ -66,7 +65,7 @@ public class SpotOnFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 SpotOnItem spotOnItem = dataSnapshot.getValue(SpotOnItem.class);
-                Log.e("SpotOn data retrieval", "onChildAdded " + spotOnItem.getEventName());
+                Log.v("SpotOn data retrieval", "onChildAdded " + spotOnItem.getEventName());
                 //Add the item to the starting of the data list
                 spotOnItems.add(0,spotOnItem);
                 spotOnAdapter.notifyDataSetChanged();
@@ -76,7 +75,7 @@ public class SpotOnFragment extends Fragment {
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 SpotOnItem spotOnItem = dataSnapshot.getValue(SpotOnItem.class);
-                Log.e("SpotOn data retrieval", "onChildChanged " + spotOnItem.getEventName());
+                Log.v("SpotOn data retrieval", "onChildChanged " + spotOnItem.getEventName());
                 int spotOnItemIndex = spotOnItems.indexOf(spotOnItem);
                 if(spotOnItemIndex > -1) { //Exists in the list
                     spotOnItems.set(spotOnItemIndex,spotOnItem);
@@ -87,7 +86,7 @@ public class SpotOnFragment extends Fragment {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
                 SpotOnItem spotOnItem = dataSnapshot.getValue(SpotOnItem.class);
-                Log.e("SpotOn data retrieval", "onChildRemoved " + spotOnItem.getEventName());
+                Log.v("SpotOn data retrieval", "onChildRemoved " + spotOnItem.getEventName());
                 int spotOnItemIndex = spotOnItems.indexOf(spotOnItem);
                 spotOnItems.remove(spotOnItemIndex);
                 spotOnAdapter.notifyDataSetChanged();
@@ -96,7 +95,7 @@ public class SpotOnFragment extends Fragment {
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 SpotOnItem spotOnItem = dataSnapshot.getValue(SpotOnItem.class);
-                Log.e("SpotOn data retrieval", "onChildMoved " + spotOnItem.getEventName());
+                Log.v("SpotOn data retrieval", "onChildMoved " + spotOnItem.getEventName());
                 //Not needed.
             }
 

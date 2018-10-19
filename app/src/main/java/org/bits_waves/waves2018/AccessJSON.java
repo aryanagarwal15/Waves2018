@@ -9,6 +9,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AccessJSON {
 
@@ -58,6 +61,25 @@ public class AccessJSON {
             e.printStackTrace();
         }
         return jsonArray;
+    }
+
+    public List<Event> readEventFromJSON(Context context) {
+        String jsonString = null;
+        List<Event> eventList = new ArrayList<>(0);
+        try {
+            InputStream is = context.getAssets().open("test.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            jsonString = new String(buffer, "UTF-8");
+            //eventList = (List<Event>) J
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return eventList;
     }
 
     /*private Context context;

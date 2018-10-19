@@ -4,9 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="20dp"
-    android:backgroundTint="@android:color/white"
-    android:foregroundTint="@android:color/white"
-    android:backgroundTintMode="multiply">
+    android:background="@drawable/rv_item_back"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/spoton_rv_item_eventname"

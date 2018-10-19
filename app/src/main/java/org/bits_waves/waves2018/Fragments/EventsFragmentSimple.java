@@ -31,9 +31,9 @@ import java.util.List;
 public class EventsFragmentSimple extends Fragment{
 
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
-    static {
+    /*static {
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-    }
+    }*/
     private static DatabaseReference myRef = database.getReference().child("events");
 
     RecyclerView recyclerView;
@@ -85,13 +85,13 @@ public class EventsFragmentSimple extends Fragment{
         eventBriefs = dummyData();
         eventList = dummyEventsData();
 
-        EventsAdapter adapter = new EventsAdapter(eventBriefs);
+        EventsAdapter adapter = new EventsAdapter(eventBriefs, eventList, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.addOnItemTouchListener(new EventsRecyclerViewTouchListener(getContext(), recyclerView, new EventsRecyclerViewTouchListener.ClickListener() {
+        /*recyclerView.addOnItemTouchListener(new EventsRecyclerViewTouchListener(getContext(), recyclerView, new EventsRecyclerViewTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 EventBrief eventBrief = eventBriefs.get(position); //Selected Event Brief
@@ -107,7 +107,7 @@ public class EventsFragmentSimple extends Fragment{
             public void onLongClick(View view, int position) {
                 //Nothing required...
             }
-        }));
+        }));*/
 
         /*myRef.addChildEventListener(new ChildEventListener() {
             @Override

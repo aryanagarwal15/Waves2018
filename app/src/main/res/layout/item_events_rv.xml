@@ -4,14 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="30dp"
+    android:id="@+id/events_rv_item_linearlayout"
+    android:background="@drawable/rv_item_back"
+    android:layout_margin="10dp">
 
     <ImageView
         android:id="@+id/events_rv_item_imageview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_hand"
-        android:layout_margin="25dp" />
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/events_rv_item_title"
@@ -20,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textSize="25sp"/>
 
 </LinearLayout>

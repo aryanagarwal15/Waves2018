@@ -1,30 +1,39 @@
 package org.bits_waves.waves2018.Fragments;
 
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+
+import org.bits_waves.waves2018.Activities.ProfileActivity;
 import org.bits_waves.waves2018.R;
 
-public class HomeFragment extends Fragment{
+public class HomeFragment extends Fragment {
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
+    }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        ImageView profile = view.findViewById(R.id.profile_pic);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(i);
+            }
+        });
         return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

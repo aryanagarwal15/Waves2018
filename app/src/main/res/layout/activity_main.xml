@@ -7,51 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="#000000"
-            android:textAlignment="center"
-            app:titleTextColor="@android:color/white"
-            app:subtitleTextColor="@android:color/white"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:title="Waves"
-            android:gravity="center_horizontal"
-            app:subtitle="Embrace the Shadows"
-            />
-
         <FrameLayout
             android:id="@+id/main_activity_frame_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:animateLayoutChanges="false"
             android:layout_weight="10"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/main_activity_secondary_frame_layout"
-            android:visibility="gone"
-            android:animateLayoutChanges="false"
-            android:layout_weight="10"/>
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="#000000"
-            app:itemIconTint="#ffffff"
-            app:itemTextColor="#ffffff"
+            android:layout_alignParentBottom="true"
+            android:background="#a2222222"
+            app:itemIconTint="@drawable/nav_item_color"
+            app:itemTextColor="@drawable/nav_item_color"
             app:menu="@menu/bottom_navigation_items"/>
 
-    </LinearLayout>
 </RelativeLayout>

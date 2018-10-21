@@ -1,28 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back">
 
-    <!--ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/Hamburger_icon"
-        android:background="null"
-        android:scaleType="fitXY"/-->
+    <Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="0dp"
+        android:background="#99000000">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_csr_icon" />
+
+            <ImageView
+                android:id="@+id/waves_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:contentDescription="@string/waves_2018"
+                android:paddingRight="40px"
+                android:src="@drawable/waves_logo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:id="@+id/profile_pic"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_login_icon" />
+        </RelativeLayout>
+    </Toolbar>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/embrace"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/toolbar_main"
+        android:src="@drawable/waves_logo"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_margin="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/waves_logo_white" />
+        android:layout_below="@id/embrace"
+        android:layout_margin="8dp"
+        android:background="#f0f0f0">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/img_about"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="this is jsut a text and it looks wonderful....dfcknskjfcb cvf hbf dibfs dbcf s"
+            android:layout_marginRight="100dp"
+            android:textColor="#000"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

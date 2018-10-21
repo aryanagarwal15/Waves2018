@@ -25,10 +25,10 @@ public class EventsView extends AppCompatActivity {
         int day = intent.getIntExtra("day", 0);
 
 
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager_events_activity);
+        ViewPager mViewPager = findViewById(R.id.viewpager_events_activity);
 
         //Code to display
-        TextView titleTextView = (TextView) findViewById(R.id.textview_title_events_activity);
+        TextView titleTextView = findViewById(R.id.textview_title_events_activity);
         titleTextView.setText("Day " + day);
 
         EventsViewCardPagerAdapter mCardAdapter = new EventsViewCardPagerAdapter();

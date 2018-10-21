@@ -7,84 +7,63 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
-
-import org.bits_waves.waves2018.Fragments.EventsEventsFragment;
-import org.bits_waves.waves2018.Fragments.EventsFragment;
 import org.bits_waves.waves2018.Fragments.EventsFragmentSimple;
-import org.bits_waves.waves2018.Fragments.HomeFragmentOld;
+import org.bits_waves.waves2018.Fragments.HomeFragment;
 import org.bits_waves.waves2018.Fragments.SpotOnFragment;
 import org.bits_waves.waves2018.R;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.bits_waves.waves2018.BottomNavigationViewHelper;
 
-import java.io.IOException;
-import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity implements EventsFragment.UpdateEvents{
-
-    Boolean twoFragments = false;
-    FrameLayout secondaryFrameLayout;   //Used for Events Tab
-    Fragment selectedFragment = null;
-    Fragment selectedSecondaryFragment = null;
+public class MainActivity extends AppCompatActivity{
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = (BottomNavigationView) findViewById(R.id.bottom_nav);
-        secondaryFrameLayout = (FrameLayout) findViewById(R.id.main_activity_secondary_frame_layout);
-
-
-
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        BottomNavigationViewHelper.disableShiftMode(bottomNav);
         bottomNav.setSelectedItemId(R.id.bottom_nav_home);
+        fragment = HomeFragment.newInstance();
+        loadFragment(fragment); //Loading the fragment first time
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()) {
                     case R.id.bottom_nav_events:
-                        /*selectedSecondaryFragment = EventsEventsFragment.newInstance();
-                        selectedFragment = EventsFragment.newInstance();
-                        twoFragments = true;*/
-                        selectedFragment = EventsFragmentSimple.newInstance();
-                        twoFragments = false;
+                        fragment = EventsFragmentSimple.newInstance();
+                        loadFragment(fragment);
                         break;
                     case R.id.bottom_nav_home:
-                        selectedFragment = HomeFragmentOld.newInstance();
-                        twoFragments = false;
+                         fragment = HomeFragment.newInstance();
+                        loadFragment(fragment);
                         break;
-                    case R.id.bottom_nav_spoton:
-                        selectedFragment = SpotOnFragment.newInstance();
-                        twoFragments = false;
+                    case R.id.bottom_nav_live:
+                         fragment = SpotOnFragment.newInstance();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.bottom_nav_winners:
+                         fragment = SpotOnFragment.newInstance();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.bottom_nav_voting:
+                         fragment = SpotOnFragment.newInstance();
+                        loadFragment(fragment);
                         break;
                 }
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                if(twoFragments) {
-                    secondaryFrameLayout.setVisibility(View.VISIBLE);
-                    transaction.replace(R.id.main_activity_frame_layout, selectedFragment);
-                    transaction.replace(R.id.main_activity_secondary_frame_layout, selectedSecondaryFragment);
-                }
-                else {
-                    secondaryFrameLayout.setVisibility(View.GONE);
-                    transaction.replace(R.id.main_activity_frame_layout, selectedFragment);
-                }
-                transaction.commit();
+
                 return true;
             }
         });
 
-        //Manually displaying the first fragment - one time only
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_activity_frame_layout, HomeFragmentOld.newInstance());
-        transaction.commit();
-    }
 
-    @Override
-    public void updateEvents(int i) {
-        String tag = "android:switcher:" + R.id.main_activity_secondary_frame_layout + ":" + 1;
-        EventsEventsFragment ef = (EventsEventsFragment) getSupportFragmentManager().findFragmentById(R.id.main_activity_secondary_frame_layout);
-        ef.updateEventsSecondary(i);
+    }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_activity_frame_layout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
